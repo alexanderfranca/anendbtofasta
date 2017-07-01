@@ -62,19 +62,19 @@ anendbtofasta --database database_name \
 
 ## Explaining the parameters
 
-* --database database_name
+* --database
 
 The database name.
 
-* --password database_password
+* --password
 
 Password to log into the relational database.
 
-* --host database_host
+* --host
 
 Hostname/IP where's the relational database.
  
-* --user database_user
+* --user
 
 Username to access the database.
 
