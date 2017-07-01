@@ -13,7 +13,11 @@ Tool to grab protein and EC number data from AnEnDB relational database and writ
 * clusperin
 * clusteringloader
 
-But to run **anendbtofasta** you a fully functional AnEnDB relational database.
+## Requirements
+
+To run **anendbtofasta** you need a fully functional AnEnDB relational database.
+
+## Results
 
 The result files follow the format below:
 
