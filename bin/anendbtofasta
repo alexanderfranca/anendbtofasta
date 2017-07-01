@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import argparse
+
+parseargs = argparse.ArgumentParser(description="Generate Fasta files grouped by EC number from the AnEnDB relational database.")
+parseargs.add_argument('--database', help="Database name.", required=True)
+parseargs.add_argument('--password', help="Database password.", required=True)
+parseargs.add_argument('--host', help="Database host.", required=True)
+parseargs.add_argument('--user', help="Database username.", required=True)
+parseargs.add_argument('--destination-directory', help="Where to store the Fasta files.", required=True)
+parseargs.add_argument('--log-file', help="Full path for the log file.", required=True)
+parseargs.add_argument('--ec-numbers', help="List, separated by comma, of EC numbers.", required=False)
+
+args = parseargs.parse_args()
+
+from anendbtofasta import *
+
+anendb = AnendbToFasta(
+                          database=args.database,
+                          password=args.password,
+                          host=args.host,
+                          user=args.user,
+                          destination_directory=args.destination_directory,
+                          log_file=args.log_file,
+                      )
+
+
+if args.ec_numbers:
+    anendb.generate_ec_proteins_files(args.ec_numbers)
+else:
+    anendb.generate_ec_proteins_files()
